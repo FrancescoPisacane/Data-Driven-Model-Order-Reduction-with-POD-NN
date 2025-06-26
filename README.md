@@ -1,8 +1,6 @@
 # Data-Driven-Model-Order-Reduction-with-POD-NN
 
-# Leakage Detection in a Water Reservoir
-
-## Data-Driven Model Order Reduction with POD-NN
+## Leakage Detection in a Water Reservoir
 
 This repository presents a data-driven approach for leakage detection in a water reservoir, utilizing advanced Model Order Reduction (MOR) techniques. The project's core is the development of a surrogate model based on **Proper Orthogonal Decomposition (POD)** and **Neural Networks (NN)** to efficiently approximate the complex pressure field governed by the underlying Partial Differential Equations (PDEs). This methodology effectively bypasses the computational cost of solving high-fidelity Finite Element Method (FEM) simulations, providing a fast and accurate solution for parameter estimation.
 
