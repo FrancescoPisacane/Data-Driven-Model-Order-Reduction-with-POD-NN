@@ -10,10 +10,10 @@ This repository presents a data-driven approach for leakage detection in a water
 - **Data-Driven ROM Implementation**: I implemented a **POD-NN** (Proper Orthogonal Decomposition - Neural Network) framework. This technique leverages POD to find an optimal low-dimensional basis (the POD modes) for the high-dimensional data, followed by a neural network that learns the nonlinear mapping from the model parameters to the POD coefficients.
 - **ROM Training and Assessment**: The POD-NN model was trained on a subset of 150 simulations and rigorously assessed on a test set of 50 unseen simulations. I quantified the model's performance by computing the average relative error in the $L^2$ norm, achieving an accuracy well below the target threshold of 12%, demonstrating the surrogate model's predictive power.
 - **Inverse Problem Solving**: The trained ROM is then used to solve a crucial inverse problem: estimating the model parameters (leakage characteristics) from sparse sensor measurements. This is formulated as a least-squares minimization problem:
-    $$
-    \mu_{lsq} := \underset{\mu \in \Theta}{\text{argmin}} \sum_{k=1}^{N_{sensors}} (s_k - P_{\mu}^{(k)})^2
-    $$
-    where $s_k$ are the sensor measurements and $P_{\mu}^{(k)}$ is the pressure approximation at the sensor location obtained from the surrogate model. Leveraging the ROM, this optimization is solved orders of magnitude faster than with the full FEM model.
+  $$
+  \mu_{lsq} := \underset{\mu \in \Theta}{\text{argmin}} \sum_{k=1}^{N_{sensors}} (s_k - P_{\mu}^{(k)})^2
+  $$
+  where $s_k$ are the sensor measurements and $P_{\mu}^{(k)}$ is the pressure approximation at the sensor location obtained from the surrogate model. Leveraging the ROM, this optimization is solved orders of magnitude faster than with the full FEM model. For instance, estimating parameters for **1000 simulations** can be reduced from approximately **two hours** down to just **30 seconds**.
 - **Code Structure**: The entire workflow is documented and implemented within a single, interactive Jupyter Notebook (`POD_NN.ipynb`), ensuring a clear, step-by-step execution. To foster readability and smooth online execution, the trained ROM is saved and loaded, eliminating the need for time-consuming retraining.
 
 ## Tools and Libraries
